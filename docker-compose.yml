@@ -1,0 +1,12 @@
+version: '2.4'
+
+services:
+  app:
+    build: .
+    ports:
+      - 7000:7000
+    volumes:
+      - ./:/app
+    restart: on-failure
+    mem_limit: 256m
+    cpus: 0.5

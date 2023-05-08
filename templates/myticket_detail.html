@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SpaceFlightРass
+{% endblock %}
+
+{% block body %}
+    <p class="lead"> # FlightPass.ID ticket: <b> {{ ticket.fpid }} </b> </p>
+
+    <div class="alert alert-info">
+        <p>Destination flight (name planet): {{ ticket.destination }}</p>
+        <p>Departure date:<b> {{ ticket.depdate }}</b></p>
+        <p>Starship name: {{ ticket.starship_name }}</p>
+        <p>Starship registration: {{ ticket.starship_reg }}</p>
+        <p>Application Note^ {{ ticket.rem }}</p>
+        <p>Pilot: <b>{{ ticket.SFP_Users.login }}</b> </p>
+        <p>Status ticket: <b>{{ tstatus[ticket.status] }}</b></p>
+    </div>
+{% endblock %}

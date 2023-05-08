@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SpaceFlightРass
+{% endblock %}
+
+{% block body %}
+    <p class="lead"> <b> # My TicketList to space flight pass </b> </p>
+    {% if tickets|length > 0 %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#FPid</th>
+                <th scope="col">DestPlanet</th>
+                <th scope="col">DepDate</th>
+                <th scope="col">StarshipName</th>
+                <th scope="col">StarshipReg</th>
+                <th scope="col">Pilot</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for el in tickets %}
+            <tr>
+                <th scope="row">{{ el.fpid }}</th>
+                <td>{{ el.destination }}</td>
+                <td>{{ el.depdate }}</td>
+                <td>{{ el.starship_name }}</td>
+                <td>{{ el.starship_reg }}</td>
+                <td> <b>// {{ el.SFP_Users.login }} </b></td>
+                <td>{{ tstatus[el.status] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="lead"> !!! Nothing found for the specified FPid</p>
+    {% endif %}
+{% endblock %}

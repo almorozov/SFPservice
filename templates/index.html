@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SpaceFlightРass
+{% endblock %}
+
+{% block body %}
+<h1 align="center">Welcome to Web-service SpaceFlightРass</h1> <br>
+<div class="text-center">
+    <img src="{{ url_for('static', filename='images/space-1.jpg') }}" class="img-fluid" align="center"><br>
+    <img src="{{ url_for('static', filename='images/space-2.jpg') }}" class="img-fluid" align="center">
+</div>
+{% endblock %}

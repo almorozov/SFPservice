@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SpaceFlightРass
+{% endblock %}
+
+{% block body %}
+    <p class="lead"> <b> # Status Pilot List &gt;&gt;</b> </p>
+    {% if pilot|length > 0 %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">// Pilot</th>
+                <th scope="col"># CountTicket</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for el in pilot %}
+            <tr>
+                <th scope="row">{{ el.login }}</th>
+                <td>{{ el.SFP_FlightPass|length }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p class="lead"> !!! Ticket not found</p>
+    {% endif %}
+{% endblock %}

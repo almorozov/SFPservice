@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SpaceFlightРass
+{% endblock %}
+
+{% block body %}
+
+<p class="lead"> <b> # Edit ticket to space flight pass </b> </p>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="alert alert-warning" role="alert">
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+{% endwith %}
+<form action="/ticket/{{ ticket.tid }}/edit" method="post">
+    Destination flight (name planet)*: <input type="text" name="destination" id="destination" class="form-control" value="{{ ticket.destination }}" minlength="3" maxlength="100" required><br>
+    Departure date*: <input type="date" name="depdate" id="depdate" class="form-control" value="{{ ticket.depdate }}" required><br>
+    Starship name*: <input type="text" name="starship_name" id="starship_name" class="form-control" value="{{ ticket.starship_name }}" minlength="3" maxlength="100" required><br>
+    Starship registration*: <input type="text" name="starship_reg" id="starship_reg" class="form-control" value="{{ ticket.starship_reg }}" minlength="3" maxlength="100" required><br>
+    Application Note> <textarea name="rem" id="rem" class="form-control" maxlength="1000">{{ ticket.rem }}</textarea><br>
+    <b>*Required fields</b><br>
+    <input type="submit" class="btn btn-success" value="Edit"><br>
+</form>
+
+{% endblock %}

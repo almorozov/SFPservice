@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SpaceFlightРass
+{% endblock %}
+
+{% block body %}
+<p class="lead"> <b> # MyProfile on service SpaceFlightPass </b> </p>
+<div class="alert alert-info">
+    <p>Username (login): <b>{{ user.login }}</b></p>
+    <p>Reg date:<b> {{ user.date }}</b></p>
+    <a href="/logout" class="btn btn-success">Logout</a>
+</div>
+<div class="alert alert-info">
+    <p><b>SpaceFlightPass web service terms of use</b></p>
+    1. The Company offers the user of the space network to use the web service available at: http://IP:port (hereinafter referred to as the Service).<br>
+    2. Starting to use the Service and its individual functions, as well as accepting these terms by clicking the button below, the User is considered to have accepted these Terms in full. If the User disagrees with any of the provisions, the User is not entitled to use the Service.<br>
+    3. These Terms may be changed by the Company without any special notice, the new version of the Terms comes into force from the moment it is posted on the space network at the specified address.<br>
+    4. The Service offers the User a free opportunity to send an application (permit) for a flight from the Company's space port in accordance with the flight schedules of starships, as well as access to other related information. All currently existing functions of the Service, as well as any development of them and / or addition of new ones, are subject to these Terms.<br><br>
+    <a href="/ApproveRules?uname={{ user.login }}" class="btn btn-success">Approve</a>
+</div>
+{% endblock %}
