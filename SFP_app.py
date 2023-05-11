@@ -239,7 +239,7 @@ def search():
     if tsearch:
         e = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
         with e.connect() as conn:
-            sql = text("SELECT * FROM SFP_FlightPass WHERE fpid == \""+ tsearch +"\" and uid == "+ str(current_user.id))
+            sql = text("SELECT * FROM SFP_FlightPass WHERE starship_name == \""+ tsearch +"\" and uid == "+ str(current_user.id))
             app.logger.info('[FUNC] [/search] [Succeess] User:<%s> Data:<%s>',current_user.login, tsearch)
             tickets = conn.execute(sql).all()
         return render_template("searchlist-2.html", tickets=tickets, tstatus=tstatus)
